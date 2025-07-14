@@ -9,18 +9,14 @@ import {
   Briefcase,
   ChevronDown,
   ChevronUp,
-  Divide,
   Home,
-  Icon,
   Layers3,
   LockIcon,
   LucideIcon,
   Search,
   Settings,
-  Settings2,
   ShieldAlert,
   User,
-  User2,
   Users,
   X,
 } from "lucide-react";
@@ -30,7 +26,6 @@ import { usePathname } from "next/navigation";
 // Interactive components are client components
 
 import React, { useState } from "react";
-import { isatty } from "tty";
 
 const Sidebar = () => {
   // This state determines whether the projects section of the sidebar is open or not

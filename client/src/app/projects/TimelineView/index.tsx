@@ -23,16 +23,18 @@ const Timeline = ({ id, setIsModalNewTaskOpen }: TimelineProps) => {
     locale: "en-US",
   });
 
-  const niceColors = [
-    "#60A5FA", // blue-400
-    "#34D399", // green-400
-    "#F472B6", // pink-400
-    "#FBBF24", // yellow-400
-    "#A78BFA", // purple-400
-    "#F87171", // red-400
-    "#38BDF8", // sky-400
-    "#FDBA74", // orange-400
-  ];
+  const niceColors = useMemo(() => {
+    return [
+      "#60A5FA", // blue-400
+      "#34D399", // green-400
+      "#F472B6", // pink-400
+      "#FBBF24", // yellow-400
+      "#A78BFA", // purple-400
+      "#F87171", // red-400
+      "#38BDF8", // sky-400
+      "#FDBA74", // orange-400
+    ];
+  }, []);
 
   const ganttTasks = useMemo(() => {
     return (
@@ -51,7 +53,7 @@ const Timeline = ({ id, setIsModalNewTaskOpen }: TimelineProps) => {
         },
       })) || []
     );
-  }, [tasks]);
+  }, [tasks, niceColors]);
 
   const handleViewModeChange = (
     event: React.ChangeEvent<HTMLSelectElement>,

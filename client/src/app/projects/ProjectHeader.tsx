@@ -5,9 +5,7 @@ import {
   Grid3X3,
   List,
   PlusSquare,
-  Share,
   Share2,
-  Share2Icon,
   Table,
 } from "lucide-react";
 import React, { useState } from "react";

@@ -1,14 +1,12 @@
 "use client";
 
 import {
-  Priority,
-  Project,
   Task,
   useGetProjectsQuery,
   useGetTasksQuery,
 } from "@/state/api";
 import React, { useEffect, useState } from "react";
-import { useAppSelector } from "../redux";
+// import { useAppSelector } from "../redux";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import Header from "@/components/Header";
 import { ResponsiveBar } from "@nivo/bar";
@@ -21,17 +19,12 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import {
-  Bar,
-  BarChart,
-  CartesianGrid,
   Cell,
   Legend,
   Pie,
   PieChart,
   ResponsiveContainer,
   Tooltip,
-  XAxis,
-  YAxis,
 } from "recharts";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import { ClipboardList, Flag, User } from "lucide-react";
@@ -56,8 +49,6 @@ const HomePage = () => {
   const { data: projects, isLoading: isProjectsLoading } =
     useGetProjectsQuery();
 
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
-
   useEffect(() => {
     if (!selectedProjectId && projects && projects.length > 0) {
       setSelectedProjectId(projects[0].id);
@@ -73,47 +64,47 @@ const HomePage = () => {
   if (tasksLoading || isProjectsLoading) return <div>Loading..</div>;
   if (tasksError || !tasks || !projects) return <div>Error fetching data</div>;
 
-  const priorityCount = tasks.reduce(
-    (acc: Record<string, number>, task: Task) => {
-      const { priority } = task;
-      acc[priority as Priority] = (acc[priority as Priority] || 0) + 1;
-      return acc;
-    },
-    {},
-  );
+  // const priorityCount = tasks.reduce(
+  //   (acc: Record<string, number>, task: Task) => {
+  //     const { priority } = task;
+  //     acc[priority as Priority] = (acc[priority as Priority] || 0) + 1;
+  //     return acc;
+  //   },
+  //   {},
+  // );
 
-  const taskDistribution = Object.keys(priorityCount).map((key) => ({
-    name: key,
-    count: priorityCount[key],
-  }));
+  // const taskDistribution = Object.keys(priorityCount).map((key) => ({
+  //   name: key,
+  //   count: priorityCount[key],
+  // }));
 
-  const statusCount = projects.reduce(
-    (acc: Record<string, number>, project: Project) => {
-      const status = project.endDate ? "Completed" : "Active";
-      acc[status] = (acc[status] || 0) + 1;
-      return acc;
-    },
-    {},
-  );
+  // const statusCount = projects.reduce(
+  //   (acc: Record<string, number>, project: Project) => {
+  //     const status = project.endDate ? "Completed" : "Active";
+  //     acc[status] = (acc[status] || 0) + 1;
+  //     return acc;
+  //   },
+  //   {},
+  // );
 
-  const projectStatus = Object.keys(statusCount).map((key) => ({
-    name: key,
-    count: statusCount[key],
-  }));
+  // const projectStatus = Object.keys(statusCount).map((key) => ({
+  //   name: key,
+  //   count: statusCount[key],
+  // }));
 
-  const chartColors = isDarkMode
-    ? {
-        bar: "#8884d8",
-        barGrid: "#303030",
-        pieFill: "#4A90E2",
-        text: "#FFFFFF",
-      }
-    : {
-        bar: "#8884d8",
-        barGrid: "#E0E0E0",
-        pieFill: "#82ca9d",
-        text: "#000000",
-      };
+  // const chartColors = isDarkMode
+  //   ? {
+  //       bar: "#8884d8",
+  //       barGrid: "#303030",
+  //       pieFill: "#4A90E2",
+  //       text: "#FFFFFF",
+  //     }
+  //   : {
+  //       bar: "#8884d8",
+  //       barGrid: "#E0E0E0",
+  //       pieFill: "#82ca9d",
+  //       text: "#000000",
+  //     };
 
   const taskStatusCount = tasks.reduce(
     (acc: Record<string, number>, task: Task) => {

@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import { Menu, Moon, Search, Settings, Sun } from "lucide-react";
+import { Menu,  Search, Settings } from "lucide-react";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
-import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
+import {  setIsSidebarCollapsed } from "@/state";
 import gsap from "gsap";
 
 // We use (components) so that the route doesn't appear in the url;
@@ -13,8 +13,6 @@ const Navbar = () => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed,
   );
-
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   const settingsRef = useRef<HTMLDivElement>(null);
 

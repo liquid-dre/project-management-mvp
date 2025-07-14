@@ -7,9 +7,8 @@ import {
   EllipsisVertical,
   MessageSquareMore,
   Plus,
-  PlusCircle,
 } from "lucide-react";
-import { format, formatDate } from "date-fns";
+import { format } from "date-fns";
 import Image from "next/image";
 
 type BoardProps = {
@@ -70,6 +69,7 @@ const TaskColumn = ({
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
     drop: (item: { id: number }) => moveTask(item.id, status),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     collect: (monitor: any) => ({
       isOver: !!monitor.isOver(),
     }),
@@ -77,6 +77,7 @@ const TaskColumn = ({
 
   const tasksCount = tasks.filter((task) => task.status === status).length;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const statusColor: any = {
     "To Do": "#2653EB",
     "Work In Progress": "#059669",
@@ -141,6 +142,7 @@ const Task = ({ task }: TaskProps) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
     item: { id: task.id },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     collect: (monitor: any) => ({
       // Doule !! forces it to boolean
       isDragging: !!monitor.isDragging(),

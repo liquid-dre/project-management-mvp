@@ -2,16 +2,13 @@
 
 import React from "react";
 import { useGetTeamsQuery } from "@/state/api";
-import { useAppSelector } from "../redux";
+// import { useAppSelector } from "../redux";
 import Header from "@/components/Header";
 import {
   DataGrid,
   ExportCsv,
   FilterPanelTrigger,
   GridColDef,
-  GridToolbarContainer,
-  GridToolbarExport,
-  GridToolbarFilterButton,
   Toolbar,
 } from "@mui/x-data-grid";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
@@ -44,7 +41,6 @@ const columns: GridColDef[] = [
 
 const Users = () => {
   const { data: teams, isLoading, isError } = useGetTeamsQuery();
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   return (
     <div className="flex w-full flex-col gap-6 p-8">

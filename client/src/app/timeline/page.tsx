@@ -18,16 +18,18 @@ const Timeline = () => {
     locale: "en-US",
   });
 
-  const niceColors = [
-    "#60A5FA",
-    "#34D399",
-    "#F472B6",
-    "#FBBF24",
-    "#A78BFA",
-    "#F87171",
-    "#38BDF8",
-    "#FDBA74",
-  ];
+  const niceColors = useMemo(() => {
+    return [
+      "#60A5FA", // blue-400
+      "#34D399", // green-400
+      "#F472B6", // pink-400
+      "#FBBF24", // yellow-400
+      "#A78BFA", // purple-400
+      "#F87171", // red-400
+      "#38BDF8", // sky-400
+      "#FDBA74", // orange-400
+    ];
+  }, []);
 
   const ganttTasks = useMemo(() => {
     return (
@@ -46,7 +48,7 @@ const Timeline = () => {
         },
       })) || []
     );
-  }, [projects]);
+  }, [projects, niceColors]);
 
   const handleViewModeChange = (
     event: React.ChangeEvent<HTMLSelectElement>,

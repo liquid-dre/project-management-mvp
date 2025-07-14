@@ -3,16 +3,13 @@
 import React from "react";
 import Image from "next/image";
 import { useGetUsersQuery } from "@/state/api";
-import { useAppSelector } from "../redux";
+// import { useAppSelector } from "../redux";
 import Header from "@/components/Header";
 import {
   DataGrid,
   ExportCsv,
   FilterPanelTrigger,
   GridColDef,
-  GridToolbarContainer,
-  GridToolbarExport,
-  GridToolbarFilterButton,
   Toolbar,
 } from "@mui/x-data-grid";
 import {
@@ -58,7 +55,6 @@ const columns: GridColDef[] = [
 
 const Users = () => {
   const { data: users, isLoading, isError } = useGetUsersQuery();
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   return (
     <div className="flex w-full flex-col gap-6 p-8">
