@@ -9,7 +9,9 @@ import Table from "../TableView";
 import ModalNewTask from "@/components/ModalNewTask";
 
 type Props = {
-  params: { id: string };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: { id: string } & Promise<any>;
 };
 
 const Project = ({ params }: Props) => {
