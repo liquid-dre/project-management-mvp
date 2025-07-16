@@ -67,7 +67,7 @@ const Sidebar = () => {
         {/* The image must exist in th public directory */}
         <div className="flex items-center gap-4 border-y bg-gray-50 px-6 py-4">
           <Image
-            src="/logo.png"
+            src="https://pm-mvp-s3-images.s3.eu-north-1.amazonaws.com/logo.png"
             alt="Team Logo"
             width={40}
             height={40}

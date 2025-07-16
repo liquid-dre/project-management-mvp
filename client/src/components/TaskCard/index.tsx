@@ -36,7 +36,7 @@ const TaskCard = ({ task }: Props) => {
           </strong>
           <div className="mt-2 overflow-hidden rounded-xl border border-gray-200 shadow-sm">
             <Image
-              src={`/${task.attachments[0].fileURL}`}
+              src={`https://pm-mvp-s3-images.s3.eu-north-1.amazonaws.com/${task.attachments[0].fileURL}`}
               alt={task.attachments[0].fileName}
               width={500}
               height={250}
