@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import StoreProvider, { useAppSelector } from "./redux";
+import AuthProvider from "./authProvider";
 
 // Kinda like a container for every page where we have sidear always present, navbar always present & page content in the middle
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -27,8 +28,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <Sidebar />
       {/* This main is the  right side of the screen i.e Navbar on top and the content under it*/}
       <main
-        className={`flex w-full flex-col bg-gray-50 text-gray-950
-           ${isSidebarCollapsed ? "" : "md:pl-64"} `}
+        className={`flex w-full flex-col bg-gray-50 text-gray-950 ${isSidebarCollapsed ? "" : "md:pl-64"} `}
       >
         <Navbar />
         {children}
@@ -41,7 +41,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <StoreProvider>
-      <DashboardLayout>{children}</DashboardLayout>
+      <AuthProvider>
+        <DashboardLayout>{children}</DashboardLayout>
+      </AuthProvider>
     </StoreProvider>
   );
 };
