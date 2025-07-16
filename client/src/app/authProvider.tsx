@@ -45,7 +45,7 @@ const formFields = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AuthProvider = ({ children }: any) => {
   return (
-    <div className="flex items-center justify-center h-screen w-screen">
+    <div className="mt-5">
       <Authenticator formFields={formFields}>
 
     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
